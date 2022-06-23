@@ -1,0 +1,57 @@
+ {% extends 'index.html' %}
+ {% block content %}
+    <div class="row align-items-center text-center py-4">
+        <h1 class="col">Inscription</h1>
+    </div>
+    <form class="row g-3" method="post" action="{% url 'valide' %} ">{% csrf_token %}
+      <div class="col-md-6">
+        <label for="nom" class="form-label">Nom</label>
+        <input type="text" class="form-control" id="nom" name="nom" required placeholder="entrer votre nom">
+      </div>
+      <div class="col-md-6">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input type="text" class="form-control" id="prenom" name="prenom" required placeholder="entrer votre prénom">
+      </div>
+      <div class="col-md-6">
+        <label for="cin" class="form-label">CIN</label>
+        <input type="text" class="form-control" id="CIN" required placeholder="entrer votre CIN">
+      </div>
+      <div class="col-6">
+        <label for="adresse" class="form-label">Adresse</label>
+        <input type="text" class="form-control" id="adresse" name="adresse" required placeholder="entrer votre adresse">
+      </div>
+      <div class="col-6">
+        <label for="telephone" class="form-label">Téléphone</label>
+        <input type="text" class="form-control" id="telephone" name="telephone" required placeholder="entrer votre téléphone" >
+      </div>
+      <div class="col-6">
+        <label for="mtpass" class="form-label">Mot de passe</label>
+        <input type="text" class="form-control" id="mtpass" name="mtpass" required placeholder="entrer votre mot de passe">
+      </div>
+      <div class="col-12 py-3">
+        <label for="type" class="font-weight-bold">Type de handicap :</label>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="moteur"  name="moteur" >
+          <label class="form-check-label" for="flexSwitchCheckChecked">Handicap moteur</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="auditif "name="auditif" >
+          <label class="form-check-label" for="flexSwitchCheckChecked">Handicap auditif</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="visuel" name="visuel" >
+          <label class="form-check-label" for="flexSwitchCheckChecked">Handicap visuel</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="autisme" name="autisme">
+          <label class="form-check-label" for="flexSwitchCheckChecked">Handicap mental</label>
+        </div>
+      </div>
+      <div class="col-6 text-center">
+        <input class="btn btn-outline-primary" type="submit" value="Valider">
+      </div>
+      <div class="col-6 text-center">
+        <input class="btn btn-outline-danger" type="reset" value="Annuler">
+      </div>
+    </form>
+  {% endblock %}

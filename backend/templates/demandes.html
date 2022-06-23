@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title %}Page Demandes{% endblock %}
+{% block content %}
+<h1>bonjour {{nom}}</h1>
+        <table class="table">
+            <th>nom</th>
+            <th>prenom</th>
+            <th>cin</th>
+
+            <tr>
+            <td>{{demandes.beneficiaire}}</td>
+            <td>{{demandes.appareil}}</td>
+            <td>{{demandes.date_demande}}</td>
+           </tr>
+
+        </table>
+{% endblock %}
