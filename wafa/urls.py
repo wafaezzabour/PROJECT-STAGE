@@ -24,6 +24,7 @@ urlpatterns = [
     path('inscription/', back_views.inscription, name="inscription"),
     path('contact/' , back_views.contact, name="contact" ),
     path('connexion/', back_views.connexion, name="connexion" ),
+    path('deconnexion/', back_views.deconnexion, name="deconnexion" ),
     path('valide/' , back_views.inscription, name="valide" ),
     path('admin/', admin.site.urls),
 

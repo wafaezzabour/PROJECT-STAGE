@@ -1,25 +1,44 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse
 from .models import Demande
 
 def index(request):
-    return render(request, template_name="index.html")
+    if request.session.get("connected"):
+        return HttpResponseRedirect(reverse('demandes'))
+    else:
+        return HttpResponseRedirect(reverse('connexion'))
 
 def demande(request):
-    demandes=Demande.objects.get(pk=1)
-    nom='wafa'
-    return render(request, template_name="demandes.html", context={"demandes":demandes,"nom":nom})
+    if request.session.get("connected"):
+        demandes=Demande.objects.get(pk=1)
+        nom='wafa'
+        return render(request, template_name="demandes.html", context={"demandes":demandes,"nom":nom})
+    else:
+        return HttpResponseRedirect(reverse('connexion'))
+
 
 def nouvelle(request):
-    return render(request, template_name="nouvelle.html")
+    if request.session.get("connected"):
+        return render(request, template_name="nouvelle.html")
+    else:
+        return HttpResponseRedirect(reverse('connexion'))
 
 def contact(request):
     return render(request, template_name="contact.html")
 
 def connexion(request):
-     return render(request, template_name="connexion.html")
+     if request.method == "POST" :
+         request.session["connected"] = True
+         return HttpResponseRedirect(reverse('demandes'))
+     else:
+         return render(request, template_name="connexion.html")
+
+def deconnexion(request):
+    request.session["connected"] = False
+    return HttpResponseRedirect(reverse('connexion'))
 
 def inscription(request):
      if request.method == "POST":
-         return render(request, template_name="valide.html")
+         return HttpResponseRedirect(reverse('demandes'))
      else:
          return render(request, template_name="inscription.html")

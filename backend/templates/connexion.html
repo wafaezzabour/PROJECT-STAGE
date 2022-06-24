@@ -1,20 +1,27 @@
 {% extends 'index.html' %}
 {% block content %}
-      <form class="row py-5" action="/action_page.php">
-        <div class="form-group col-12">
-          <label class="control-label col-sm-2" for="cin">CIN:</label>
+<h1>{{ connected }}</h1>
+      <form class="row py-5 d-flex justify-content-center align-items-center" method="post" action="{% url 'connexion' %}">{% csrf_token %}
+
+        <div class="form-group col-7 ">
+          <label class="control-label col-12" for="cin">CIN:</label>
           <div class="col-12">
             <input type="text" class="form-control" id="cin" name="cin" required placeholder="entrer votre CIN">
           </div>
         </div>
-        <div class="form-group col-12">
-          <label class="control-label col-sm-2" for="pwd">Mot de passe:</label>
+        <div class="form-group col-7">
+          <label class="control-label col-12" for="pwd">Mot de passe:</label>
           <div class="col-12">
             <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter le mot de passe" required>
           </div>
         </div>
-        <div class="col-12  text-center py-4">
+        <div class="col-7 d-flex justify-content-between">
+        <div class="col-5  text-center">
           <button type="submit" class="btn btn-primary">se connecter</button>
+        </div>
+        <div class="col-5 text-center ">
+            <a href="{% url 'inscription' %}" class="btn btn-info">Inscription rapide ?</a>
+        </div>
         </div>
       </form>
     {% endblock %}

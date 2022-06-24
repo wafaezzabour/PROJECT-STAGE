@@ -3,7 +3,7 @@
     <div class="row align-items-center text-center py-4">
         <h1 class="col">Inscription</h1>
     </div>
-    <form class="row g-3" method="post" action="{% url 'valide' %} ">{% csrf_token %}
+    <form class="row g-3" method="post" action="{% url 'inscription' %} ">{% csrf_token %}
       <div class="col-md-6">
         <label for="nom" class="form-label">Nom</label>
         <input type="text" class="form-control" id="nom" name="nom" required placeholder="entrer votre nom">
