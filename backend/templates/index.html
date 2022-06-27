@@ -15,7 +15,7 @@
   <body>
 
    <nav class="navbar navbar-expand-sm navbar-dark bg-info">
-      <a class="navbar-brand" href="{% url 'index' %}">Gestion des aides technique</a>
+      <a class="navbar-brand" href="{% url 'accueil' %}">Gestion des aides technique</a>
       <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -25,6 +25,10 @@
           <li class="nav-item ">
             <a class="nav-link" href="{% url 'index' %}"><i class="fa-solid fa-home" ></i> Principale <span class="sr-only">(current)</span></a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'admin:index' %}"><i class="fa-solid fa-gears" ></i> Administration</a>
+          </li>
+
            <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            <i class="fa-solid fa-user-plus" ></i>
@@ -38,6 +42,8 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'contact' %}"><i class="fa-solid fa-phone" ></i> Contact</a>
           </li>
+
+
         {% if not request.session.connected %}
           <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,9 +56,13 @@
             </ul>
             </li>
         {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'deconnexion' %}"><i class="fa-solid fa-logout" ></i> Déconnexion</a>
+        <li class="nav-item">
+                <a class="nav-link" ><i class="fa-solid fa-user" ></i> Bonjour  {{request.session.utilisateur}}</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'deconnexion' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Déconnexion</a>
+            </li>
+
         {% endif %}
         </ul>
       </div>
@@ -63,7 +73,7 @@
 
    <div class="container">
         {% block content %}
-
+            <h1>Bienvenue</h1>
         {% endblock %}
    </div>
              <!-- Optional JavaScript -->

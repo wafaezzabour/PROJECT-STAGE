@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block title %}Page accueil{% endblock %}
+{% block content %}
+   <div class="alert alert-info  m-5" >
+       <h1 class="d-flex justify-content-center align-items-center">Bienvenue</h1>
+       <div  class=" d-flex justify-content-center align-items-center py-2">
+       <a class="btn btn-primary" href="{% url 'index'%}" role="button">Accéder à mon espace</a>
+       </div>
+    </div>
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="2500">
+          <img src="https://handicapmentaltpeblog.files.wordpress.com/2016/12/cropped-charte-commune-handicap-enfant-trisomie.jpg" class="rounded w-100 h-50" alt="mental">
+        </div>
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="https://images.theconversation.com/files/301357/original/file-20191112-178525-1mx4tq8.jpg" class="rounded w-100 h-50" alt="moteur">
+        </div>
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="https://www.onisep.fr/var/onisep/storage/images/_aliases/article_visuel_660_440/media/images/handicap/les-handicaps/handicap-auditif/scolarisation-auditif/13927031-5-fre-FR/Scolarisation-auditif.jpg" class="rounded h-50 w-100" alt="auditif">
+        </div>
+        <div class="carousel-item" data-bs-interval="2500">
+          <img src="https://www.innovation-mutuelle.fr/wp-content/uploads/2018/05/handicap-visuel-developper-capacites-de-compensation-790x427.jpg" class="rounded w-100 h-50" alt="visuel">
+        </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      </div>
+    </div>
+{% endblock %}

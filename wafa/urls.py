@@ -18,7 +18,8 @@ from django.urls import path
 from backend import views as back_views
 
 urlpatterns = [
-    path('', back_views.index, name="index"),
+    path('', back_views.accueil, name="accueil"),
+    path('espace/', back_views.index, name="index"),
     path('demandes/', back_views.demande, name="demandes"),
     path('nouvelle/', back_views.nouvelle, name="nouvelle"),
     path('inscription/', back_views.inscription, name="inscription"),

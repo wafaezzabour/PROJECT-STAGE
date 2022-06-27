@@ -2,6 +2,10 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from .models import Demande
 
+
+def accueil(request):
+    return render(request, template_name="accueil.html")
+
 def index(request):
     if request.session.get("connected"):
         return HttpResponseRedirect(reverse('demandes'))
@@ -10,7 +14,7 @@ def index(request):
 
 def demande(request):
     if request.session.get("connected"):
-        demandes=Demande.objects.get(pk=1)
+        demandes=Demande.objects.all()
         nom='wafa'
         return render(request, template_name="demandes.html", context={"demandes":demandes,"nom":nom})
     else:
@@ -29,7 +33,9 @@ def contact(request):
 def connexion(request):
      if request.method == "POST" :
          request.session["connected"] = True
+         request.session["utilisateur"]="WAFA"
          return HttpResponseRedirect(reverse('demandes'))
+
      else:
          return render(request, template_name="connexion.html")
 
